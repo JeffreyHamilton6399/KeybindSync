@@ -12,6 +12,7 @@ import net.fabricmc.fabric.api.client.screen.v1.ScreenMouseEvents;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.gui.screens.options.controls.KeyBindsScreen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.resources.Identifier;
@@ -32,9 +33,9 @@ public class KeybindSyncMod implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         saveKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
-            "key.keybindsync.save", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_F8, CATEGORY));
+            "key.keybindsync.save", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, CATEGORY));
         loadKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
-            "key.keybindsync.load", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_F9, CATEGORY));
+            "key.keybindsync.load", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, CATEGORY));
 
         ProfileManager.preload();
 
@@ -55,8 +56,14 @@ public class KeybindSyncMod implements ClientModInitializer {
 
         // ── quick-save / quick-load hotkeys ───────────────────────────────────
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (saveKey.consumeClick()) ProfileManager.saveProfile("quick");
-            if (loadKey.consumeClick()) ProfileManager.loadProfile("quick");
+            if (saveKey.consumeClick()) {
+                ProfileManager.saveProfile("quick");
+                client.gui.setOverlayMessage(Component.literal("KeybindSync: Saved to 'quick'"), false);
+            }
+            if (loadKey.consumeClick()) {
+                ProfileManager.loadProfile("quick");
+                client.gui.setOverlayMessage(Component.literal("KeybindSync: Loaded 'quick'"), false);
+            }
         });
 
         // ── sidebar panel on the vanilla Controls screen ───────────────────────
