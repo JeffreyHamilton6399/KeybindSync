@@ -97,10 +97,9 @@ public class DiffScreen extends Screen {
             String summary = changed + " binding(s) will change";
             if (added > 0) summary += "  ·  " + added + " skipped (mod not installed)";
             g.drawCenteredString(font, Component.literal(summary), width / 2, height - 44, COL_SUMMARY);
+            g.drawString(font, "Yellow = will change   Grey = unknown action (skipped)",
+                    listX, height - 36, COL_SUBHDR);
         }
-
-        g.drawString(font, "Yellow = will change   Grey = unknown action (skipped)",
-                listX, height - 44, COL_SUBHDR);
 
         super.render(g, mx, my, delta);  // renders buttons
     }

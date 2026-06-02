@@ -23,7 +23,7 @@ public class KeybindSyncConfig {
     public Map<String, String> serverProfiles = new LinkedHashMap<>();
 
     // ── singleton ─────────────────────────────────────────────────────────────
-    public static KeybindSyncConfig get() {
+    public static synchronized KeybindSyncConfig get() {
         if (INSTANCE == null) INSTANCE = load();
         return INSTANCE;
     }

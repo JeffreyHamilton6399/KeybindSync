@@ -338,7 +338,7 @@ public class ControlsSidePanel {
         if (name.isEmpty()) { setStatus("Select or type a name!", RED); return; }
         if (ProfileManager.loadProfile(name)) {
             int c = ProfileDiff.detectConflicts().size();
-            setStatus(c > 0 ? "Loaded (" + c + " conflicts)" : "Loaded: " + name,
+            setStatus(c > 0 ? "Loaded: " + name + " (" + c + " conflicts)" : "Loaded: " + name,
                       c > 0 ? ORANGE : GREEN);
         } else {
             setStatus("Not found: " + name, RED);
@@ -478,3 +478,4 @@ public class ControlsSidePanel {
     }
     private static int clamp(int v, int lo, int hi) { return Math.max(lo, Math.min(hi, v)); }
 }
+
