@@ -1,0 +1,6 @@
+{
+  "key.keybindsync.save": "Save Keybind Profile",
+  "key.keybindsync.load": "Load Keybind Profile",
+  "key.keybindsync.gui":  "Open Profile Manager",
+  "key.category.keybindsync.keybindsync": "KeybindSync"
+}

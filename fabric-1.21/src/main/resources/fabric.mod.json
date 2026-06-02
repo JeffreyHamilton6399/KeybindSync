@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "keybindsync",
+  "version": "${version}",
+  "name": "KeybindSync",
+  "description": "Save and load named keybind profiles (pvp, survival, 1.20.1…) without restarting. Press F8 to save, F9 to load, F10 to manage profiles.",
+  "authors": [
+    "jeffreyscotthamilton6399"
+  ],
+  "contact": {
+    "sources": "https://github.com/jeffreyscotthamilton6399/KeybindSync",
+    "issues": "https://github.com/jeffreyscotthamilton6399/KeybindSync/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/keybindsync/textures/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.keybindsync.KeybindSyncMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.5",
+    "minecraft": ">=1.21.9 <26",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

@@ -1,0 +1,20 @@
+# Build outputs
+build/
+*/build/
+
+# Gradle caches
+.gradle/
+*/.gradle/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# Loom cache
+.loom-cache/
+mappings/
+
+# OS files
+.DS_Store
+Thumbs.db
