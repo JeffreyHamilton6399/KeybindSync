@@ -47,4 +47,4 @@ Requires Java 21+ and Gradle. Each version has its own subproject:
 
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE).
