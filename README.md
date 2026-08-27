@@ -36,14 +36,18 @@ All other management (save, load, delete, preview) is done through the side pane
 
 ## Building
 
-Requires Java 21+ and Gradle. Each version has its own subproject:
+Requires Java 21+. Each Minecraft version is its own subproject with its own
+Gradle wrapper, so build them one at a time:
 
+```bash
+cd mc1_20_1    && ./gradlew build   # 1.20 – 1.20.1
+cd mc1_20_4    && ./gradlew build   # 1.20.2 – 1.20.6
+cd mc1_21      && ./gradlew build   # 1.21 – 1.21.8
+cd fabric-1.21 && ./gradlew build   # 1.21.9 – 1.21.11
 ```
-.\mc1_20_1\gradlew.bat build    # 1.20 – 1.20.1
-.\mc1_20_4\gradlew.bat build    # 1.20.2 – 1.20.6
-.\mc1_21\gradlew.bat build      # 1.21 – 1.21.8
-.\fabric-1.21\gradlew.bat build # 1.21.9 – 1.21.11
-```
+
+On Windows use `gradlew.bat` in place of `./gradlew`. Each build writes its JAR
+to that subproject's `build/libs/`.
 
 ## License
 
